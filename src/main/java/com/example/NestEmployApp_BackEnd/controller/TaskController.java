@@ -41,4 +41,18 @@ public class TaskController {
 
         return (List<Task>) dao.EmployViewTask(t.getEmpcode());
     }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/update",consumes = "application/json",produces = "application/json")
+    public Map<String,String> UpdateStatus(@RequestBody Task t)
+    {
+        String id=String.valueOf(t.getId());
+        String status=t.getStatus().toString();
+        System.out.println(id);
+        System.out.println(status);
+        dao.UpdateStatus(t.getId(),t.getStatus());
+        HashMap<String,String> map=new HashMap<>();
+        map.put("status","success");
+        return map;
+    }
 }
