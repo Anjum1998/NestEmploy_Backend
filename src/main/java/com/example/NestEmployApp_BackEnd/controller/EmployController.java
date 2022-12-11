@@ -56,12 +56,5 @@ public class EmployController {
         }
         return map;
     }
-    @CrossOrigin(origins = "*")
-    @PostMapping(path = "/empview",consumes = "application/json",produces = "application/json")
-    public List<Employ> EmployView(@RequestBody Employ e)
-    {
-        String id=String.valueOf(e.getId());
-        System.out.println(id);
-        return (List<Employ>) dao.EmployView(e.getId());
-    }
+
 }
